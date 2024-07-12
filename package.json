@@ -15,8 +15,10 @@
     "@astrojs/tailwind": "^5.0.0",
     "@astrojs/ts-plugin": "^1.0.4",
     "@cosmicjs/sdk": "^1.0.5",
+    "@directus/sdk": "^16.1.1",
     "astro": "^3.0.8",
     "date-fns": "^2.29.2",
+    "dotenv": "^16.4.5",
     "react-markdown": "^8.0.3",
     "sharp": "^0.32.1",
     "tailwindcss": "^3.3.2"

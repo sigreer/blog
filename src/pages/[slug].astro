@@ -1,34 +1,37 @@
 ---
-import { getConfig } from '../lib/cosmic'
-const config = await getConfig()
-const defaultTitle = config.metadata.website_title
-const defaultDescription = config.metadata.website_description
-const defaultImage = config.metadata.og_image.imgix_url
-const defaultUrl = config.metadata.og_url
-const { title, description, imageUrl } = Astro.props
+import Layout from "../layouts/Layout.astro";
+import directus from "../lib/directus";
+import { readItems } from "@directus/sdk";
+
+export async function getStaticPaths() {
+  const pages = await directus.request(readItems("pages"));
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: page,
+  }));
+}
+const page = Astro.props;
 ---
 
+
 <!-- HTML Meta Tags -->
-<title>{title || defaultTitle}</title>
-<meta name="description" content={description || defaultDescription} />
+<title>{page.title}</title>
+<meta name="description" content={page.description} />
 
 <!-- Google / Search Engine Tags -->
-<meta itemprop="name" content={title || defaultTitle} />
-<meta itemprop="description" content={description || defaultDescription} />
-<meta itemprop="image" content={imageUrl || defaultImage} />
+<meta itemprop="name" content={page.title} />
+<meta itemprop="description" content={page.description} />
 
 <!-- Facebook Meta Tags -->
-<meta property="og:url" content={defaultUrl} />
+<meta property="og:url" content={page.slug} />
 <meta property="og:type" content="website" />
-<meta property="og:title" content={title || defaultTitle} />
-<meta property="og:description" content={description || defaultDescription} />
-<meta property="og:image" content={imageUrl || defaultImage} />
+<meta property="og:title" content={page.title} />
+<meta property="og:description" content={page.description} />
 
 <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title || defaultTitle} />
-<meta name="twitter:description" content={description || defaultDescription} />
-<meta name="twitter:image" content={imageUrl || defaultImage} />
+<meta name="twitter:title" content={page.title} />
+<meta name="twitter:description" content={page.description} />
 
 <!-- Favicon Meta Tags -->
 <meta charset="UTF-8" />
@@ -58,3 +61,11 @@ const { title, description, imageUrl } = Astro.props
 <meta name="theme-color" content="#000" />
 <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
 <meta name="generator" content={Astro.generator} />
+
+
+<Layout title={page.title} description={page.description}>
+  <main>
+    <h1>{page.title}</h1>
+    <div set:html={page.content} />
+  </main>
+</Layout>

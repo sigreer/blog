@@ -1,19 +1,18 @@
 ---
-import Footer from '../components/Footer.astro'
-import Metadata from '../components/Metadata.astro'
-import Navigation from '../components/Navigation.astro'
-const { title, description, imageUrl } = Astro.props
-import { ViewTransitions } from 'astro:transitions'
+
+import Footer from "../components/Footer.astro";
+//import Navigation from '../components/Navigation.astro';
+import Navbar from '../components/Navbar.astro';
+import { ViewTransitions } from 'astro:transitions';
+
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <Metadata title={title} description={description} imageUrl={imageUrl} />
     <ViewTransitions />
   </head>
-  <body class="bg-zinc-100">
-    <div class="border-b bg-white p-2 text-center text-sm">
+  <body class="bg-zinc-100"><div class="border-b bg-blue-950 p-2 text-center text-sm">
       The source code for this blog is{' '}
       <a
         href="https://github.com/cosmicjs/simple-astro-blog"
@@ -22,7 +21,7 @@ import { ViewTransitions } from 'astro:transitions'
         available on GitHub</a
       >.
     </div>
-    <Navigation />
+    <Navbar />
     <main
       class="mx-auto my-12 flex min-h-screen max-w-3xl flex-col px-3 lg:px-0">
       <slot />

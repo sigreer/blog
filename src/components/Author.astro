@@ -1,22 +1,35 @@
 ---
-import { Image } from 'astro:assets'
-const { name, imageUrl, about, linkedIn, twitter, gitHub } = Astro.props
+import directus from "../lib/directus";
+import { Image } from 'astro:assets';
+import { readItems, readItem } from "@directus/sdk";
+
+export async function getStaticPaths() {
+  try {
+    const pages = await directus.request(readItems("pages", {
+      fields: ['*', { author: ['*'] }],
+    }));
+    return pages.map((page) => ({ params: { slug: page.slug, author: page.author.id }, props: page }));
+  } catch (error) {
+    console.error("Error fetching pages:", error);
+    throw new Error("Failed to fetch pages from Directus");
+  }
+}
+const page = Astro.props;
 ---
 
 <div class="my-4 flex items-center gap-x-8 rounded-md bg-white p-8 shadow">
   <Image
-    src={imageUrl}
+    src={`https://directus.simongreer.co.uk/assets/${page.author.profile_picture.id}?width=500`}
     width={100}
     height={100}
-    alt={name || 'The author'}
+    alt={page.author.name || 'The author'}
     class={'rounded-full'}
     loading="lazy"
   />
   <div class="flex flex-col gap-y-4">
-    <h3 class="text-2xl font-semibold">About {name || 'the author'}</h3>
-    <p>{about}</p>
+    <h3 class="text-2xl font-semibold">About {page.author.name || 'the author'}</h3>
     <span class="flex w-fit gap-x-5">
-      <a href={twitter} target="_blank">
+      <a href={page.author.twitter} target="_blank">
         <span class="w-fit transition-opacity hover:opacity-60">
           <svg
             stroke="currentColor"
@@ -32,7 +45,7 @@ const { name, imageUrl, about, linkedIn, twitter, gitHub } = Astro.props
           </svg>
         </span>
       </a>
-      <a href={linkedIn} target="_blank">
+      <a href={page.author.mastodon} target="_blank">
         <span class="w-fit transition-opacity hover:opacity-60">
           <svg
             stroke="currentColor"
@@ -48,7 +61,7 @@ const { name, imageUrl, about, linkedIn, twitter, gitHub } = Astro.props
           </svg>
         </span>
       </a>
-      <a href={gitHub} target="_blank">
+      <a href={page.author.github} target="_blank">
         <span class="w-fit transition-opacity hover:opacity-60">
           <svg
             stroke="currentColor"
