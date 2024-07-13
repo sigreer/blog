@@ -3,26 +3,22 @@ import Logo from './Logo.astro'
 ---
 
 <footer class="flex h-28 flex-col items-center justify-center gap-y-6">
-  <nav class="flex justify-center">
-    <ul class="flex gap-x-2">
-      <li class="text-sm hover:opacity-70">
-        <a href="/">Home</a>
-      </li>
-      <li class="text-sm hover:opacity-70">
-        <a href="/blog">Blog</a>
-      </li>
-    </ul>
-  </nav>
-  <span class="flex items-center">
-    <span class="flex items-center text-sm"> Powered by</span>
-    <a
-      href="https://www.cosmicjs.com/"
-      target="_blank"
-      aria-label="Cosmic"
-      title="Cosmic"
-      rel="noreferrer"
-      class="ml-2"
-      ><Logo />
+  <div class="flex flex-col items-center">
+    <p class="flex items-center"><span class="flex items-center">Powered by</span></p>
+    <p class="flex justify-items-center">
+      <a href="https://directus.io/" target="_blank" aria-label="Directus" title="Directus" rel="noreferrer" class="ml-2">
+        <span class="font-bold flex-none text-indigo-700">Directus </span>
+      </a>
+      <a href="https://astro.build/" target="_blank" aria-label="Astro" title="Astro" rel="noreferrer" class="ml-2">
+        <span class="font-bold flex-none text-emerald-700">Astro </span>
+      </a>
+      <a href="https://tailwindcss.com/" target="_blank" aria-label="Tailwind" title="Tailwind" rel="noreferrer" class="ml-2">
+        <span class="font-bold flex-none text-sky-700">Tailwind </span>
+      </a>
+      <a href="https://bun.sh/" target="_blank" aria-label="Bun" title="Bun" rel="noreferrer" class="ml-2">
+        <span class="font-bold text-yellow-700 flex-none">Bun </span>
+      </a>
     </a>
-  </span>
+    </p>
+  </div>
 </footer>

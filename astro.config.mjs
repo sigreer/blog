@@ -5,6 +5,9 @@ import robotsTxt from 'astro-robots-txt'
 
 // https://astro.build/config
 export default defineConfig({
+  image: {
+    domains: ["directus.simongreer.co.uk"],
+  },
   integrations: [tailwind(), react(), robotsTxt()],
   site: 'https://simple-astro-blog.vercel.app'
 })

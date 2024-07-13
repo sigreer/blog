@@ -6,6 +6,13 @@ dotenv.config();
 type Global = {
   title: string;
   description: string;
+  logo_icon: {
+    id: string;
+    description: string;
+  };
+  logo_text: string;
+  introduction: string;
+  site_url: string;
 }
 
 type Author = {
