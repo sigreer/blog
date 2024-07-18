@@ -8,13 +8,18 @@
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@pages/*": ["src/pages/*"]
+      "@pages/*": ["src/pages/*"],
+      "@utils/*": ["src/utils/*"]
     },
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
       }
     ],
-    "allowJs": true
-  }
+    "allowJs": true,
+    "outDir": "./public/js",
+    "rootDir": "./src"
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

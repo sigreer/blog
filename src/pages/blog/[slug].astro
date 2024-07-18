@@ -1,6 +1,6 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import directus from "../lib/directus";
+import Layout from "../../layouts/Layout.astro";
+import directus from "../../lib/directus";
 import { readItems } from "@directus/sdk";
 
 export async function getStaticPaths() {
@@ -16,3 +16,4 @@ const post = Astro.props;
 
 <!-- HTML Meta Tags -->
 <title>{post.title}</title>
+<h1>{post.title}</h1>

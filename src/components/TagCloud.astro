@@ -1,0 +1,26 @@
+---
+import { hashStringToColor } from '../utils/colorUtils';
+
+export interface TagCloudProps {
+  tagCounts: Record<string, number>;
+}
+
+const { tagCounts } = Astro.props;
+---
+
+<section>
+  <h3 class="mb-4 text-2xl font-bold">Tag Cloud</h3>
+  <div class="flex flex-wrap gap-2">
+    {
+      Object.entries(tagCounts).map(([tag, count]) => (
+        <a
+          href={`/blog?tag=${encodeURIComponent(tag)}`}
+          class="inline-block rounded px-2 py-1 text-sm font-semibold text-white"
+          data-tag={tag}
+          style={`font-size: ${0.75 + count * 0.25}rem;`}>
+          {tag}
+        </a>
+      ))
+    }
+  </div>
+</section>

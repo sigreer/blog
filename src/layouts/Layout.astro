@@ -1,7 +1,6 @@
 ---
-
+import Banner from "../components/Banner.astro";
 import Footer from "../components/Footer.astro";
-//import Navigation from '../components/Navigation.astro';
 import Navbar from '../components/Navbar.astro';
 import { ViewTransitions } from 'astro:transitions';
 
@@ -11,16 +10,10 @@ import { ViewTransitions } from 'astro:transitions';
 <html lang="en">
   <head>
     <ViewTransitions />
+    <script src="/js/tagColors.js" defer></script>
   </head>
-  <body class="bg-zinc-100"><div class="border-b bg-purple-800 p-2 text-center text-sm text-white font-bold">
-      The source code for this blog is{' '}
-      <a
-        href="https://github.com/sigreer/astro-directus-blog"
-        target="_parent"
-        class="underline transition-colors hover:text-blue-600">
-        available on GitHub</a
-      >.
-    </div>
+  <body class="bg-zinc-100">
+    <Banner />
     <Navbar />
     <main
       class="mx-auto my-12 flex min-h-screen max-w-3xl flex-col px-3 lg:px-0">

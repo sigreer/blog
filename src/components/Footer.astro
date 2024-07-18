@@ -1,22 +1,33 @@
 ---
-import Logo from './Logo.astro'
+import { Image } from 'astro:assets';
+import directusIcon from '../images/directus-icon-blue.svg';
+import astroIcon from '../images/astro-icon-gradient.svg';
+import tailwindIcon from '../images/tailwind-svgrepo-com.svg';
+import bunIcon from '../images/bun-icon.svg';
 ---
-
 <footer class="flex h-28 flex-col items-center justify-center gap-y-6">
   <div class="flex flex-col items-center">
     <p class="flex items-center"><span class="flex items-center">Powered by</span></p>
     <p class="flex justify-items-center">
       <a href="https://directus.io/" target="_blank" aria-label="Directus" title="Directus" rel="noreferrer" class="ml-2">
-        <span class="font-bold flex-none text-indigo-700">Directus </span>
+        <span class="font-bold flex-none text-indigo-700">
+          <Image src={directusIcon} alt="Directus" height="45" />
+        </span>
       </a>
       <a href="https://astro.build/" target="_blank" aria-label="Astro" title="Astro" rel="noreferrer" class="ml-2">
-        <span class="font-bold flex-none text-emerald-700">Astro </span>
+        <span class="font-bold flex-none text-emerald-700">
+          <Image src={astroIcon} alt="Astro" width="45" height="45" />
+        </span>
       </a>
       <a href="https://tailwindcss.com/" target="_blank" aria-label="Tailwind" title="Tailwind" rel="noreferrer" class="ml-2">
-        <span class="font-bold flex-none text-sky-700">Tailwind </span>
+        <span class="font-bold flex-none  text-sky-700">
+          <Image src={tailwindIcon} alt="Tailwind" width="45" height="45" />
+        </span>
       </a>
       <a href="https://bun.sh/" target="_blank" aria-label="Bun" title="Bun" rel="noreferrer" class="ml-2">
-        <span class="font-bold text-yellow-700 flex-none">Bun </span>
+        <span class="font-bold text-yellow-7000 flex-none">
+          <Image src={bunIcon} alt="Bun" width="45" height="45" />
+        </span>
       </a>
     </a>
     </p>
