@@ -2,8 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import directus from "../lib/directus";
 import { readSingleton, readItems } from "@directus/sdk";
-import Card from "../components/Card.astro";
-import BlogListItem from "../components/BlogListItem.astro";
 import TagCloud from "../components/TagCloud.astro";
 import Introduction from "../components/Introduction.astro";
 import KeyCards from "../components/KeyCards.astro";
@@ -14,8 +12,6 @@ const global = await directus.request(readSingleton("global"));
 const posts = await directus.request(readItems("posts", {
   fields: ['*', { author: ['*'] }],
 }));
-
-// Extract and count tags
 const tagCounts = posts.reduce((acc, post) => {
   if (Array.isArray(post.tags)) {
     post.tags.forEach(tag => {
@@ -25,10 +21,6 @@ const tagCounts = posts.reduce((acc, post) => {
   return acc;
 }, {});
 
-export async function getStaticPaths() {
-  return posts.map((post) => ({ params: { slug: post.slug }, props: post }));
-}
-const post = Astro.props;
 ---
 
 <Layout title={global.title} description={global.description}>
