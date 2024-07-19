@@ -1,0 +1,26 @@
+---
+import { readItems } from "@directus/sdk";
+import directus from "../lib/directus";
+import BlogListCard from "./BlogListCard.astro";
+
+const posts = await directus.request(readItems("posts", {
+  fields: ['*', { author: ['*'] }],
+}));
+---
+
+<section>
+    <h3 class="mb-2 text-xl md:mb-4 md:text-2xl font-bold">Blog Posts</h3>
+    <ul class="grid gap-4 md:gap-8 md:grid-cols-2">
+      {
+        posts.slice(0, 2).map((post) => (
+          <BlogListCard
+            title={post.title}
+            slug={post.slug}
+            content={post.excerpt}
+            tags={post.tags}
+          />
+        ))
+      }
+    </ul>
+    <div class="my-4 md:my-6"></div>
+</section>

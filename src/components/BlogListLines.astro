@@ -1,0 +1,26 @@
+---
+import { readItems } from "@directus/sdk";
+import directus from "../lib/directus";
+import BlogListItem from "./BlogListItem.astro";
+
+const posts = await directus.request(readItems("posts", {
+  fields: ['*', { author: ['*'] }],
+}));
+---
+
+<section>
+    <ul class="rounded-md bg-white shadow-md transition hover:shadow-xl">
+        {
+          posts.slice(2, 6).map((post) => (
+            <BlogListItem
+              title={post.title}
+              slug={post.slug}
+              content={post.excerpt}
+              tags={post.tags}
+            />
+          ))
+        }
+      </ul>
+</section>
+  
+<div class="my-4 md:my-6"></div>
