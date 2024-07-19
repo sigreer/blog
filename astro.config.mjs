@@ -1,13 +1,21 @@
-import { defineConfig } from 'astro/config'
-import react from '@astrojs/react'
-import tailwind from '@astrojs/tailwind'
-import robotsTxt from 'astro-robots-txt'
+import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
+import tailwind from '@astrojs/tailwind';
+import robotsTxt from 'astro-robots-txt';
+import tailwindcssNesting from 'tailwindcss/nesting';
 
 // https://astro.build/config
 export default defineConfig({
   image: {
     domains: ["directus.simongreer.co.uk"],
   },
-  integrations: [tailwind(), react(), robotsTxt()],
+  vite: {
+    css: {
+      postcss: {
+        plugins: [tailwindcssNesting()]
+      }
+    }
+  },
+  integrations: [tailwind({ applyBaseStyles: true }), react(), robotsTxt()],
   site: 'https://simple-astro-blog.vercel.app'
 })

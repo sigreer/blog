@@ -7,7 +7,7 @@ import Introduction from "../components/Introduction.astro";
 import KeyCards from "../components/KeyCards.astro";
 import BlogListCards from "../components/BlogListCards.astro";
 import BlogListLines from "../components/BlogListLines.astro";
-import '../styles/custom.scss';
+import '../styles/custom.css';
 const global = await directus.request(readSingleton("global"));
 const posts = await directus.request(readItems("posts", {
   fields: ['*', { author: ['*'] }],
