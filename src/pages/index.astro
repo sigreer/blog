@@ -5,6 +5,7 @@ import { readSingleton, readItems } from "@directus/sdk";
 import Card from "../components/Card.astro";
 import BlogListItem from "../components/BlogListItem.astro";
 import TagCloud from "../components/TagCloud.astro";
+import Introduction from "../components/Introduction.astro";
 import '../styles/custom.scss';
 const global = await directus.request(readSingleton("global"));
 const posts = await directus.request(readItems("posts", {
@@ -29,38 +30,37 @@ const post = Astro.props;
 
 <Layout title={global.title} description={global.description}>
 
-  <p>{global.description}</p>
-  <div class="my-6"></div>
-  <p class="mb-4 text-2xl font-bold">This Blog is built with:</p>
-  <section class="flex w-full flex-col gap-8 lg:flex-row">
+  <Introduction />
+  <p class="mb-2 text-xl md:mb-4 md:text-2xl font-bold">This Blog is built with:</p>
+  <section class="flex flex-col gap-4 md:gap-8 lg:flex-row">
     <a
       href="https://www.directus.io/"
-      class="w-full rounded-md bg-[#1e1e1e] p-6 shadow-md transition hover:opacity-80 hover:shadow-lg">
+      class="w-full rounded-md bg-[#1e1e1e] p-4 md:p-6 shadow-md transition hover:opacity-80 hover:shadow-lg">
       <h3
-        class="w-fit bg-gradient-to-l from-[#f3b5ff] to-[#ff10c3] bg-clip-text text-2xl font-bold text-transparent">
+        class="w-fit bg-gradient-to-l from-[#f3b5ff] to-[#ff10c3] bg-clip-text text-xl md:text-2xl font-bold text-transparent">
         Directus
       </h3>
-      <p class="text-white">
+      <p class="text-white text-sm md:text-base">
         A composable data platform to build your Headless CMS, BaaS, and more. 
       </p>
     </a>
     <a
       href="https://astro.build/"
-      class="w-full rounded-md bg-[#1e1e1e] p-6 shadow-md transition hover:opacity-80 hover:shadow-lg">
+      class="w-full rounded-md bg-[#1e1e1e] p-4 md:p-6 shadow-md transition hover:opacity-80 hover:shadow-lg">
       <h3
-        class="w-fit bg-gradient-to-b from-[#4f39fa] to-[#da62c4] bg-clip-text text-2xl font-bold text-transparent">
+        class="w-fit bg-gradient-to-b from-[#4f39fa] to-[#da62c4] bg-clip-text text-xl md:text-2xl font-bold text-transparent">
         Astro
       </h3>
-      <p class="text-white">
+      <p class="text-white text-sm md:text-base">
         A lightweight web framework for building content focused websites.
       </p>
     </a>
   </section>
-  <div class="my-6"></div>
+  <div class="my-4 md:my-6"></div>
 
   <section>
-    <h3 class="mb-4 text-2xl font-bold">Blog Posts</h3>
-    <ul class="grid gap-8 md:grid-cols-2">
+    <h3 class="mb-2 text-xl md:mb-4 md:text-2xl font-bold">Blog Posts</h3>
+    <ul class="grid gap-4 md:gap-8 md:grid-cols-2">
       {
         posts.slice(0, 2).map((post) => (
           <Card
@@ -72,7 +72,7 @@ const post = Astro.props;
         ))
       }
     </ul>
-    <div class="my-6"></div>
+    <div class="my-4 md:my-6"></div>
     <ul class="rounded-md bg-white shadow-md transition hover:shadow-xl">
       {
         posts.slice(2, 6).map((post) => (
@@ -87,6 +87,6 @@ const post = Astro.props;
     </ul>
   </section>
 
-  <div class="my-6"></div>
+  <div class="my-4 md:my-6"></div>
   <TagCloud tagCounts={tagCounts} />
 </Layout>
