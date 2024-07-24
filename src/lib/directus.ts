@@ -45,7 +45,8 @@ type Page = {
     mastodon: string;
     twitter: string;
     github: string;
-  }
+  };
+  menu: string;
 }
 
 type Post = {

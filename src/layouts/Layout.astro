@@ -3,7 +3,7 @@ import Banner from "../components/Banner.astro";
 import Footer from "../components/Footer.astro";
 import Navbar from '../components/Navbar.astro';
 import { ViewTransitions } from 'astro:transitions';
-
+import '../styles/custom.css';
 ---
 
 <!DOCTYPE html>
@@ -18,14 +18,16 @@ import { ViewTransitions } from 'astro:transitions';
       content=""
     />
     <script src="/js/tagColors.js" defer></script>
+    <ViewTransitions />
   </head>
   <body class="bg-zinc-100">
     <Banner />
     <Navbar />
     <main
-      class="sm:text-lg mx-auto lg:my-12 flex min-h-screen sm:py-1 sm:my-1 max-w-3xl flex-col px-3 sm:px-0">
+      class="sm:text-lg  mx-auto lg:my-12 flex min-h-screen sm:py-1 sm:my-1 max-w-3xl flex-col px-3 sm:px-0">
       <slot />
     </main>
     <Footer />
+    <script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
   </body>
 </html>
