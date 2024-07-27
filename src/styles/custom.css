@@ -5,29 +5,253 @@
 @import url(https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap);
 
+@layer components {
+    
+    .keycard {
+      @apply w-full rounded-md p-4 md:p-6 shadow-md transition hover:opacity-80 hover:shadow-lg bg-cover bg-center;
+      background-blend-mode: overlay;
+    }
 
-.tag-style {
-    @apply font-medium rounded-lg text-sm px-2 py-1 text-center me-0 my-1 drop-shadow;
-}
+    .keycard-gradient {
+      @apply absolute inset-0 rounded-md transition-opacity duration-300;
+    }
 
-.purple-to-blue {
-    @apply text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 tag-style;
+    .keycard:hover .keycard-gradient {
+      opacity: 0.7;
+    }
+
+
+
+    .purple1 .keycard-gradient {
+        @apply text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800;
+        background-image: url('/images/purple1-bg.jpg');
+    }
+    .purple1 .h3-headline {
+        @apply bg-gradient-to-b from-[#1c003d] to-[#d752ff] bg-clip-text text-transparent;
+    }
+    .purple1 .h3-shadow {
+        @apply bg-gradient-to-b from-[#f1f1f1] to-[#d752ff] bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(25,25,25,0.8)] drop-shadow-[0_1px_1px_rgba(25,25,25,0.8)];
+    }
+    .purple2 {
+        @apply bg-gradient-to-br from-purple-600 via-blue-500 to-blue-500/25 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 ;
+        background-image: url('/images/purple2-bg.jpg');
+    }
+    .purple2 .h3-headline {
+        @apply bg-gradient-to-b from-[#1c003d] to-[#d752ff] bg-clip-text text-transparent;
+    }
+    .purple2 .h3-shadow {
+        @apply bg-gradient-to-b from-[#f1f1f1] to-[#d752ff] bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(25,25,25,0.8)] drop-shadow-[0_1px_1px_rgba(25,25,25,0.8)];
+    }
+
+    .cyan1 {
+        @apply text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300;
+        background-image: url('/images/cyan1-bg.jpg');
+    }
+    .cyan1 .h3-headline {
+        @apply bg-gradient-to-b from-[#1c003d] to-[#d752ff] bg-clip-text text-transparent;
+    }
+    .cyan1 .h3-shadow {
+        @apply bg-gradient-to-b from-[#f1f1f1] to-[#d752ff] bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(25,25,25,0.8)] drop-shadow-[0_1px_1px_rgba(25,25,25,0.8)];
+    }
+
+    .green2 {
+        @apply text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200; 
+        background-image: url('/images/green2-bg.jpg');
+    }
+    .green2 .h3-headline {
+        @apply bg-gradient-to-b from-[#1c003d] to-[#d752ff] bg-clip-text text-transparent;
+    }
+    .green2 .h3-shadow {
+        @apply bg-gradient-to-b from-[#f1f1f1] to-[#d752ff] bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(25,25,25,0.8)] drop-shadow-[0_1px_1px_rgba(25,25,25,0.8)];
+    }
+
+
+
+
+    
+    .pink1 .h3-headline {
+        @apply bg-gradient-to-b from-[#1c003d] to-[#d752ff] bg-clip-text text-transparent;
+    }
+    .pink1 .h3-shadow {
+        @apply bg-gradient-to-b from-[#141414] to-[#d752ff] bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(25,25,25,0.8)] drop-shadow-[0_1px_1px_rgba(25,25,25,0.8)];
+    }
+
+    .green1 {
+        @apply bg-gradient-to-r from-slate-900 from-25% via-green-800 via-50%  to-green-600/70 to-80% hover:bg-gradient-to-l hover:from-lime-500 hover:to-slate-800 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700;
+        background-image: url('/images/green1-bg.jpg');
+    }
+    .green1 .h3-headline {
+        @apply bg-gradient-to-b from-[#000000] to-[#005504] bg-clip-text text-transparent;
+    }
+    .green1 .h3-shadow {
+        @apply bg-gradient-to-b from-[#ffffff] to-[#009908] bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(5,5,5,1)];
+    }
+
+
+    .red1 {
+        @apply text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 ;
+        background-image: url('/images/red1-bg.jpg');
+    }
+    .red1 .h3-headline {
+        @apply bg-gradient-to-b from-[#1c003d] to-[#d752ff] bg-clip-text text-transparent;
+    }
+    .red1 .h3-shadow {
+        @apply bg-gradient-to-b from-[#f1f1f1] to-[#d752ff] bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(25,25,25,0.8)] drop-shadow-[0_1px_1px_rgba(25,25,25,0.8)];
+    }
+
+
+
+    .tag-style {
+        @apply font-medium rounded-lg text-sm px-2 py-1 text-center me-0 my-1 drop-shadow;
+    }
+
+
+    
+    /* Red */
+    .red1b {
+        @apply text-white bg-gradient-to-r from-red-500 to-red-800 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-red-300;
+        background-image: url('/images/red1-bg.jpg');
+    }
+    .red2 {
+        @apply text-white bg-gradient-to-br from-red-400 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-200;
+        background-image: url('/images/red2-bg.jpg');
+    }
+    .red3 {
+        @apply text-white bg-gradient-to-r from-red-300 via-red-500 to-red-700 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-red-100;
+        background-image: url('/images/red3-bg.jpg');
+    }
+
+    /* Yellow */
+    .yellow1 {
+        @apply text-gray-900 bg-gradient-to-r from-yellow-300 to-yellow-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-yellow-200;
+        background-image: url('/images/yellow1-bg.jpg');
+    }
+    .yellow2 {
+        @apply text-gray-900 bg-gradient-to-br from-yellow-200 to-yellow-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-yellow-100;
+        background-image: url('/images/yellow2-bg.jpg');
+    }
+    .yellow3 {
+        @apply text-gray-900 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-yellow-300;
+        background-image: url('/images/yellow3-bg.jpg');
+    }
+
+    /* Purple */
+    .purple1b {
+        @apply text-white bg-gradient-to-r from-purple-500 to-purple-800 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-300;
+        background-image: url('/images/purple1-bg.jpg');
+    }
+    .purple2b {
+        @apply text-white bg-gradient-to-br from-purple-400 to-purple-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-purple-200;
+        background-image: url('/images/purple2-bg.jpg');
+    }
+    .purple3 {
+        @apply text-white bg-gradient-to-r from-purple-300 via-purple-500 to-purple-700 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-100;
+        background-image: url('/images/purple3-bg.jpg');
+    }
+
+    /* Cyan */
+    .cyan1b {
+        @apply text-white bg-gradient-to-r from-cyan-500 to-cyan-800 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-cyan-300;
+        background-image: url('/images/cyan1-bg.jpg');
+    }
+    .cyan2 {
+        @apply text-white bg-gradient-to-br from-cyan-400 to-cyan-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-200;
+        background-image: url('/images/cyan2-bg.jpg');
+    }
+    .cyan3 {
+        @apply text-white bg-gradient-to-r from-cyan-300 via-cyan-500 to-cyan-700 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-cyan-100;
+        background-image: url('/images/cyan3-bg.jpg');
+    }
+
+    /* Green */
+    .green1b {
+        @apply text-white bg-gradient-to-r from-green-500 to-green-800 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-green-300;
+        background-image: url('/images/green1-bg.jpg');
+    }
+    .green2b {
+        @apply text-white bg-gradient-to-br from-green-400 to-green-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200;
+        background-image: url('/images/green2-bg.jpg');
+    }
+    .green3 {
+        @apply text-white bg-gradient-to-r from-green-300 via-green-500 to-green-700 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-green-100;
+        background-image: url('/images/green3-bg.jpg');
+    }
+
+    /* Pink */
+    .pink1 {
+        @apply text-white bg-gradient-to-r z-10 from-pink-500 to-pink-800 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-pink-300;
+    }
+    .keycard .pink1 {
+        background-image: url('/images/pink1-bg.jpg');
+    }
+    .pink2 {
+        @apply text-white bg-gradient-to-br from-pink-400 to-pink-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200;
+        background-image: url('/images/pink2-bg.jpg');
+    }
+    .pink3 {
+        @apply text-white bg-gradient-to-r from-pink-300 via-pink-500 to-pink-700 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-pink-100;
+        background-image: url('/images/pink3-bg.jpg');
+    }
+
+    /* Teal */
+    .teal1 {
+        @apply text-white bg-gradient-to-r from-teal-500 to-teal-800 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-teal-300;
+        background-image: url('/images/teal1-bg.jpg');
+    }
+    .teal2 {
+        @apply text-white bg-gradient-to-br from-teal-400 to-teal-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-200;
+        background-image: url('/images/teal2-bg.jpg');
+    }
+    .teal3 {
+        @apply text-white bg-gradient-to-r from-teal-300 via-teal-500 to-teal-700 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-teal-100;
+        background-image: url('/images/teal3-bg.jpg');
+    }
+
+    /* Lime */
+    .lime1 {
+        @apply text-gray-900 bg-gradient-to-r from-lime-300 to-lime-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-lime-200;
+        background-image: url('/images/lime1-bg.jpg');
+    }
+    .lime2 {
+        @apply text-gray-900 bg-gradient-to-br from-lime-200 to-lime-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-lime-100;
+        background-image: url('/images/lime2-bg.jpg');
+    }
+    .lime3 {
+        @apply text-gray-900 bg-gradient-to-r from-lime-400 via-lime-500 to-lime-600 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-lime-300;
+        background-image: url('/images/lime3-bg.jpg');
+    }
+
+    /* Orange */
+    .orange1 {
+        @apply text-white bg-gradient-to-r from-orange-500 to-orange-800 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-orange-300;
+        background-image: url('/images/orange1-bg.jpg');
+    }
+    .orange2 {
+        @apply text-white bg-gradient-to-br from-orange-400 to-orange-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-orange-200;
+        background-image: url('/images/orange2-bg.jpg');
+    }
+    .orange3 {
+        @apply text-white bg-gradient-to-r from-orange-300 via-orange-500 to-orange-700 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-orange-100;
+        background-image: url('/images/orange3-bg.jpg');
+    }
+
+    /* Black */
+    .black1 {
+        @apply text-white bg-gradient-to-r from-gray-700 to-gray-900 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-gray-300;
+        background-image: url('/images/black1-bg.jpg');
+    }
+    .black2 {
+        @apply text-white bg-gradient-to-br from-gray-800 to-gray-950 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-gray-200;
+        background-image: url('/images/black2-bg.jpg');
+    }
+    .black3 {
+        @apply text-white bg-gradient-to-r from-gray-600 via-gray-800 to-gray-950 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-gray-100;
+        background-image: url('/images/black3-bg.jpg');
+    }
+
 }
-.cyan-to-blue {
-    @apply text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 tag-style;
-}
-.green-to-blue {
-    @apply text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 tag-style; 
-}
-.purple-to-pink {
-    @apply text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 tag-style;
-}
-.pink-to-orange {
-    @apply text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 tag-style;
-}
-.teal-to-lime {
-    @apply text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 tag-style;
-}
-.red-to-yellow {
-    @apply text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 tag-style;
-}
+@layer utilities {
+    .text-shadow-lg {
+        text-shadow: 2px 2px 4px rgb(119, 1, 1);
+    }
+}    

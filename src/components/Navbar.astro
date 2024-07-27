@@ -1,8 +1,8 @@
 ---
 import directus from "../lib/directus";
 import { readSingleton, readItems } from "@directus/sdk";
-const global = await directus.request(readSingleton('global'));
-const pages = await directus.request(readItems('pages', { filter: { menu: 'main' } }));
+const global = await directus.request(readSingleton('global')),
+      pages = await directus.request(readItems('pages', { filter: { menu: { _eq: 'main' } } }));
 ---
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
   <div class="max-w-3xl flex flex-wrap items-center justify-between mx-auto py-4">

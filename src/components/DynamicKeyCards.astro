@@ -1,0 +1,36 @@
+---
+import { readItems } from "@directus/sdk";
+import directus from "../lib/directus";
+
+const keycards = await directus.request(readItems("keycards", {
+  fields: ['*'],
+}));
+---
+<p class="mb-2 text-xl md:mb-4 md:text-2xl font-bold">{global.keycard_headline}</p>
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+  {keycards.map((keycard) => (
+    <a
+      href={keycard.link}
+      class={`keycard ${keycard.style} relative overflow-hidden`}
+      data-style={keycard.style}
+      >
+      <div class="keycard-gradient"></div>
+      <div class="relative z-10">
+        <h3
+          class="w-fit text-xl md:text-2xl font-bold relative">
+          <span class="absolute top-0 h3-headline left-0">
+            {keycard.title}
+          </span>
+          <span class="relative z-10 h3-shadow">
+            {keycard.title}
+          </span>
+        </h3>
+        <p class="text-white text-sm md:text-base">
+          {keycard.excerpt}
+        </p>
+      </div>
+    </a>
+  ))}
+</section>
+
+<div class="my-4 md:my-6"></div>

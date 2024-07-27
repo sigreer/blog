@@ -5,6 +5,6 @@
 		}
 	],
 	"settings": {
-		"astro.trace.server": "messages"
+		"astro.trace.server": "off"
 	}
 }

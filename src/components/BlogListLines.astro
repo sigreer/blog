@@ -3,12 +3,12 @@ import { readItems } from "@directus/sdk";
 import directus from "../lib/directus";
 import BlogListLine from "./BlogListLine.astro";
 const posts = await directus.request(readItems("posts", {
-  fields: ['*', { author: ['*'] }],
+  fields: ['*'],
 }));
 ---
 
 <section>
-    <ul class="rounded-md bg-white shadow-md transition hover:shadow-xl">
+    <ul class="rounded-md bg-white shadow-md transition">
         {
           posts.slice(2, 6).map((post) => (
             <BlogListLine
@@ -16,6 +16,7 @@ const posts = await directus.request(readItems("posts", {
               slug={post.slug}
               content={post.excerpt}
               tags={post.tags}
+              image={post.image}
             />
           ))
         }

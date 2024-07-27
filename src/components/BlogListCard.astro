@@ -4,23 +4,29 @@ export interface Props {
   content: string
   slug: string
   tags: string[]
-}
+  image: {
+    id: string
+    description: string
+  }}
 
-const { title, content, slug, tags } = Astro.props
+const { title, content, slug, tags, image } = Astro.props
 ---
 
-<li class="rounded-md bg-white shadow-md transition hover:shadow-xl">
-  <a href={`/blog/${slug}`}>
-    <div class="flex h-full flex-col gap-y-2 p-6">
-      <h2 class="pr-4 pt-2 text-xl font-semibold">
+<li class="rounded-md bg-white shadow-md transition hover:shadow-xl h-80">
+  <a href={`/blog/${slug}`} class="flex flex-col h-full gap-y-2 pb-4">
+    <div class="w-full h-1/2 rounded-lg">
+      <img src={ `https://directus.simongreer.co.uk/assets/${image}` } alt={title} class="h-full w-full rounded-t-md"/>
+    </div>
+    <div class="flex h-1/2 flex-col gap-y-1 px-4">
+      <h2 class="text-base font-semibold line-clamp-1">
         {title}
       </h2>
-      <p>
-        {content}
+      <p class="text-xs h-3/4">
+        {content.slice(0, 120)}{content.length > 120 ? '...' : ''}
       </p>
-      <div class="flex flex-wrap gap-1">
+      <div class="flex flex-wrap gap-1 h-1/4">
         {tags?.map((tag) => (
-          <span class="w-fit whitespace-nowrap rounded-md bg-black px-2 text-sm font-bold text-white shadow transition">
+          <span class="w-fit whitespace-nowrap rounded-md bg-black px-2 py-1 text-sm font-bold text-white shadow transition">
             {tag}
           </span>
         ))}

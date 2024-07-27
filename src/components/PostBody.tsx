@@ -24,8 +24,8 @@ const components: {} = {
   img: (img: { src: string; alt: string }) => {
     return (
       <img
-        src={`${img.src}?w=1200&auto=format,compression`}
-        alt={img.alt}
+        src={`https://directus.simongreer.co.uk/assets/${image}?w=1200&auto=format,compression`}
+        alt={title}
         loading="lazy"
         decoding="async"
         className="rounded-md shadow"

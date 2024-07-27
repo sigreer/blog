@@ -16,6 +16,6 @@ export default defineConfig({
       }
     }
   },
-  integrations: [tailwind({ applyBaseStyles: true }), react(), robotsTxt()],
-  site: 'https://simple-astro-blog.vercel.app'
+  integrations: [tailwind({ applyBaseStyles: false }), react(), robotsTxt()],
+  site: 'https://cosmodir.simongreer.co.uk'
 })

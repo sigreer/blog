@@ -13,6 +13,22 @@ type Global = {
   logo_text: string;
   introduction: string;
   site_url: string;
+  keycard_headline: string;
+  about: string;
+  mastodon: string;
+  twitter: string;
+  github: string;
+}
+
+type Keycard = {
+  title: string;
+  link: string;
+  style: string[];
+  excerpt: string;
+  background_image: {
+    id: string;
+    description: string;
+  };
 }
 
 type Author = {
@@ -41,10 +57,10 @@ type Page = {
       id: string;
       description: string;
     };
-    about: string;
-    mastodon: string;
-    twitter: string;
-    github: string;
+    image: {
+      id: string;
+      description: string;
+    };
   };
   menu: string;
 }
@@ -69,10 +85,15 @@ type Post = {
     twitter: string;
     github: string;
   }
+  image: {
+    id: string;
+    description: string;
+  };
 }
 
 type Schema = {
   global: Global;
+  keycards: Keycard[];
   pages: Page[];
   authors: Author[];
   posts: Post[];

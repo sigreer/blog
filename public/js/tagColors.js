@@ -1,12 +1,29 @@
 const tagColors = {};
 const classNames = [
-  'purple-to-blue',
-  'cyan-to-blue',
-  'green-to-blue',
-  'purple-to-pink',
-  'pink-to-orange',
-  'teal-to-lime',
-  'red-to-yellow'
+  'cyan1',
+  'cyan2',
+  'cyan3',
+  'purple1',
+  'purple2',
+  'purple3',
+  'red1',
+  'red2',
+  'red3',
+  'orange1',
+  'orange2',
+  'orange3',
+  'lime1',
+  'lime2',
+  'lime3',
+  'green1',
+  'green2',
+  'green3',
+  'blue1',
+  'blue2',
+  'blue3',
+  'black1',
+  'black2',
+  'black3',
 ];
 let classIndex = 0;
 

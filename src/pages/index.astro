@@ -4,7 +4,7 @@ import directus from "../lib/directus";
 import { readSingleton, readItems } from "@directus/sdk";
 import TagCloud from "../components/TagCloud.astro";
 import Introduction from "../components/Introduction.astro";
-import KeyCards from "../components/KeyCards.astro";
+import DynamicKeyCards from "../components/DynamicKeyCards.astro";
 import BlogListCards from "../components/BlogListCards.astro";
 import BlogListLines from "../components/BlogListLines.astro";
 import '../styles/custom.css';
@@ -25,7 +25,7 @@ const tagCounts = posts.reduce((acc, post) => {
 
 <Layout title={global.title} description={global.description}>
   <Introduction />
-  <KeyCards />
+  <DynamicKeyCards />
   <BlogListCards />
   <BlogListLines />
   <TagCloud tagCounts={tagCounts} />

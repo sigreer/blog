@@ -2,6 +2,32 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue,scss}',
 	'./node_modules/flowbite/**/*.js'],
+	safelist: [
+		'blue1',
+		'blue2',
+		'blue3',
+		'purple1',
+		'purple2',
+		'purple3',
+		'green1',
+		'green2',
+		'green3',
+		'orange1',
+		'orange2',
+		'orange3',
+		'red1',
+		'red2',
+		'red3',
+		'yellow1',
+		'yellow2',
+		'yellow3',
+		'cyan1',
+		'cyan2',
+		'cyan3',
+		'lime1',
+		'lime2',
+		'lime3',
+	  ],
 	theme: {
 		extend: {},
 		screens: {
@@ -22,6 +48,6 @@ module.exports = {
 		},
 	},
 	plugins: [
-		require('flowbite/plugin')
+		require('flowbite/plugin'),
 	],
 }

@@ -4,20 +4,21 @@ import directus from "../lib/directus";
 import BlogListCard from "./BlogListCard.astro";
 
 const posts = await directus.request(readItems("posts", {
-  fields: ['*', { author: ['*'] }],
+  fields: ['*'],
 }));
 ---
 
 <section>
     <h3 class="mb-2 text-xl md:mb-4 md:text-2xl font-bold">Blog Posts</h3>
-    <ul class="grid gap-4 md:gap-8 md:grid-cols-2">
+    <ul class="grid gap-4 md:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
       {
-        posts.slice(0, 2).map((post) => (
+        posts.slice(0, 3).map((post) => (
           <BlogListCard
             title={post.title}
             slug={post.slug}
             content={post.excerpt}
             tags={post.tags}
+            image={post.image}
           />
         ))
       }
