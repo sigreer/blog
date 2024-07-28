@@ -3,19 +3,22 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import robotsTxt from 'astro-robots-txt';
 import tailwindcssNesting from 'tailwindcss/nesting';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // https://astro.build/config
 export default defineConfig({
   image: {
-    domains: ["directus.simongreer.co.uk"],
+    domains: [process.env.DIRECTUS_URL],
   },
   vite: {
     css: {
       postcss: {
-        plugins: [tailwindcssNesting()]
+        plugins: [tailwindcssNesting]
       }
     }
   },
   integrations: [tailwind({ applyBaseStyles: false }), react(), robotsTxt()],
-  site: 'https://cosmodir.simongreer.co.uk'
+  site: process.env.SITE_URL
 })

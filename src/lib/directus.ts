@@ -84,7 +84,7 @@ type Post = {
     mastodon: string;
     twitter: string;
     github: string;
-  }
+  };
   image: {
     id: string;
     description: string;

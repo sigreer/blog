@@ -21,11 +21,11 @@ const components: {} = {
   h3: (h3: { children: string }) => {
     return <h3 className="text-2xl">{h3.children}</h3>
   },
-  img: (img: { src: string; alt: string }) => {
+  img: (img: { image: {id: string, description: string} }) => {
     return (
       <img
-        src={`https://directus.simongreer.co.uk/assets/${image}?w=1200&auto=format,compression`}
-        alt={title}
+        src={`${process.env.DIRECTUS_URL}/assets/${img.image.id}?w=1200&auto=format,compression`}
+        alt={img.image.description}
         loading="lazy"
         decoding="async"
         className="rounded-md shadow"
