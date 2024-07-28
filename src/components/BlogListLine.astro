@@ -10,10 +10,10 @@ export interface Props {
 const { title, content, slug, tags, image } = Astro.props
 ---
 
-<li class="flex flex-col rounded-md bg-white shadow-md transition">
+<li class="flex flex-col rounded-md bg-white hover:shadow-lg hover:scale-105 shadow-md transition">
   <a 
   href={`/blog/${slug}`} 
-  class="flex flex-row gap-y-1 p-2 hover:bg-opacity-50-xl hover:bg-blue-300"
+  class="flex flex-row gap-y-1 p-2"
   style={image ? `background-image: url(${process.env.DIRECTUS_URL}/assets/${image}?width=60?height=60);` : ''}
   >
   <div class="w-1/5 h-full py-4 px-2">
@@ -29,7 +29,7 @@ const { title, content, slug, tags, image } = Astro.props
       <div class="flex flex-wrap gap-1 tag-block">
         {tags?.map((tag) => (
           <span
-            class=" rounded-md px-2 py-1 text-sm font-bold text-white shadow transition" data-tag={tag}>
+            class="rounded-sm px-2 py-1 text-xs font-bold text-white shadow-sm-light transition tag-style" data-tag={tag}>
             {tag}
           </span>
         ))}

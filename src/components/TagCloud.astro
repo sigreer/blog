@@ -5,10 +5,10 @@ export interface TagCloudProps {
   tagCounts: Record<string, number>;
 }
 
-const { tagCounts } = Astro.props;
+const { tagCounts } = Astro.props as TagCloudProps;
 
 // Sort tags by count in descending order
-const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]) as [string, number][];
 
 // Calculate the maximum count for scaling
 const maxCount = Math.max(...Object.values(tagCounts) as number[]);
@@ -26,10 +26,10 @@ const calculateFontSize = (count: number) => {
       sortedTags.map(([tag, count]) => (
         <a
           href={`/blog?tag=${encodeURIComponent(tag)}`}
-          class="inline-block rounded px-2 py-1 text-sm font-semibold text-white tag-style transition-all hover:opacity-80"
+          class="inline-block rounded px-2 py-1 text-xs font-semibold text-white tag-style transition-all hover:opacity-80"
           data-tag={tag}
           style={`
-            font-size: ${calculateFontSize(count as number)}rem;
+            
             background-color: ${hashStringToColor(tag)};
           `}
         >

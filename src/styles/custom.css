@@ -26,7 +26,7 @@
 
 
     .tag-style {
-        @apply font-light rounded-sm text-sm px-2 py-1 text-center me-0 my-1 drop-shadow;
+        @apply font-light rounded-sm text-xs px-2 py-1 text-center me-0 my-1 drop-shadow;
     }
     .tag-block .cyan1, .tag-block .cyan2, .tag-block .cyan3  {
         @apply drop-shadow-[0_1px_1px_rgba(25,25,25,0.5)];
