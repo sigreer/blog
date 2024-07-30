@@ -29,7 +29,12 @@ module.exports = {
 		'lime3',
 	  ],
 	theme: {
-		extend: {},
+		extend: {
+			maxWidth: {
+				'2xl': '1536px',
+				'3xl': '1920px',
+			},
+		},
 		screens: {
 			'sm': '640px',
 			// => @media (min-width: 640px) { ... }
@@ -45,6 +50,9 @@ module.exports = {
 	  
 			'2xl': '1536px',
 			// => @media (min-width: 1536px) { ... }
+			
+			'3xl': '1920px',
+			// => @media (min-width: 1920px) { ... }
 		},
 	},
 	plugins: [

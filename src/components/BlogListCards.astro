@@ -5,23 +5,67 @@ import BlogListCard from "./BlogListCard.astro";
 
 const posts = await directus.request(readItems("posts", {
   fields: ['*'],
+  limit: 4, // Fetch up to 4 posts to cover all screen sizes
 }));
 ---
 
 <section>
-    <h3 class="mb-2 text-xl md:mb-4 md:text-2xl font-bold">Blog Posts</h3>
-    <ul class="grid gap-4 md:gap-8 grid-cols-1 sm:grid-cols-2 sm:grid-cols-3">
-      {
-        posts.slice(0, 3).map((post) => (
-          <BlogListCard
-            title={post.title}
-            slug={post.slug}
-            content={post.excerpt}
-            tags={post.tags}
-            image={post.image}
-          />
-        ))
-      }
+    <h3 class="mb-2 text-xl md:mb-4 md:text-2xl lg:text-3xl font-bold">Blog Posts</h3>
+    <ul class="grid gap-4
+    grid-cols-1 
+    sm:grid-cols-2 
+    md:grid-cols-3 md:gap-6
+    lg:grid-cols-3 lg:gap-9
+    xl:grid-cols-4 xl:gap-8
+    2xl:grid-cols-4 2xl:gap-12
+">
+      {posts.slice(0, 2).map((post) => (
+        <BlogListCard
+          title={post.title}
+          slug={post.slug}
+          content={post.excerpt}
+          tags={post.tags}
+          image={post.image}
+          className="hidden sm:block md:hidden"
+        />
+      ))}
+      {posts.slice(0, 3).map((post) => (
+        <BlogListCard
+          title={post.title}
+          slug={post.slug}
+          content={post.excerpt}
+          tags={post.tags}
+          image={post.image}
+          className="hidden md:block lg:hidden"
+        />
+      ))}
+      {posts.slice(0, 4).map((post) => (
+              <BlogListCard
+                title={post.title}
+                slug={post.slug}
+                content={post.excerpt}
+                tags={post.tags}
+                image={post.image}
+                className="hidden lg:block"
+              />
+            ))}
     </ul>
     <div class="my-4 md:my-6"></div>
 </section>
+
+<style>
+  /* Fallback for browsers that don't support :nth-child */
+  @media (max-width: 639px) {
+    .sm\:hidden { display: block; }
+  }
+  @media (min-width: 640px) and (max-width: 767px) {
+    .sm\:hidden { display: none; }
+    .sm\:nth-child\(-n\+2\)\:block { display: block; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .md\:nth-child\(n\+3\)\:hidden { display: none; }
+  }
+  @media (min-width: 1024px) {
+    .lg\:block { display: block; }
+  }
+</style>
