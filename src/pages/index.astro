@@ -7,6 +7,7 @@ import Introduction from "../components/Introduction.astro";
 import DynamicKeyCards from "../components/DynamicKeyCards.astro";
 import BlogListCards from "../components/BlogListCards.astro";
 import BlogListLines from "../components/BlogListLines.astro";
+import Carousel from "../components/Carousel.astro";
 import '../styles/custom.css';
 const global = await directus.request(readSingleton("global"));
 const posts = await directus.request(readItems("posts", {
@@ -25,6 +26,7 @@ const tagCounts = posts.reduce((acc, post) => {
 
 <Layout title={global.title} description={global.description}>
   <Introduction />
+  <Carousel />
   <DynamicKeyCards />
   <BlogListCards />
   <BlogListLines />
