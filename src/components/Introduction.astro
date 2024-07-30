@@ -1,2 +1,7 @@
+---
+import directus from "../lib/directus";
+import { readSingleton } from "@directus/sdk";
+const global = await directus.request(readSingleton('global'));
+---
 <p class="text-sm md:text-base lg:text-lg">{global.description}</p>
 <div class="my-4 md:my-6"></div>
