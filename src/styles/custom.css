@@ -7,15 +7,6 @@
 
 @layer components {
     
-    .keycard {
-      @apply w-full rounded-md p-4 md:p-6 shadow-md transition hover:shadow-lg bg-cover bg-center;
-      transition: transform 0.3s ease;
-    }
-
-    .keycard:hover {
-      transform: scale(1.05);
-    }
-
     .keycard:hover .keycard-gradient {
       opacity: 1;
     }
