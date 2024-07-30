@@ -6,7 +6,12 @@ dotenv.config();
 type Global = {
   title: string;
   description: string;
+  logo_style: string;
   logo_icon: {
+    id: string;
+    description: string;
+  };
+  logo_image: {
     id: string;
     description: string;
   };
@@ -18,6 +23,9 @@ type Global = {
   mastodon: string;
   twitter: string;
   github: string;
+  show_banner: boolean;
+  banner_text: string;
+  banner_link: string;
 }
 
 type Keycard = {
