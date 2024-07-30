@@ -62,7 +62,7 @@ type Page = {
       description: string;
     };
   };
-  menu: string;
+  menus: string;
 }
 
 type Post = {

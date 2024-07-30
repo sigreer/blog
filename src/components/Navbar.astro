@@ -2,16 +2,15 @@
 import directus from "../lib/directus";
 import { readSingleton, readItems } from "@directus/sdk";
 const global = await directus.request(readSingleton('global')),
-      pages = await directus.request(readItems('pages', { filter: { menu: { _eq: 'main' } } }));
+      pages = await directus.request(readItems('pages', { filter: { menus: { _contains: 'main-menu' }} } ));
 ---
-<nav class="bg-white border-gray-200 dark:bg-gray-900">
+<nav class="bg-white border-gray-2000">
   <div class="flex flex-wrap items-center justify-between mx-auto 
-  
   h-16    max-h-16    py-1        max-w-full  px-2
   sm:h-20 sm:max-h-20 sm:py-2     sm:w-full sm:max-w-full sm:px-4
-  md:h-24 md:max-h-24 md:py-2     md:w-full md:max-w-full md:px-8
-  lg:h-24 lg:max-h-24 lg:py-2     lg:w-full lg:max-w-full lg:px-8
-  xl:h-24 xl:max-h-24 xl:py-2     xl:max-w-full w-full xl:px-16 
+  md:h-24 md:max-h-24 md:py-3     md:w-full md:max-w-full md:px-8
+  lg:h-24 lg:max-h-24 lg:py-3     lg:w-full lg:max-w-full lg:px-8
+  xl:h-24 xl:max-h-24 xl:py-3     xl:max-w-full w-full xl:px-16 
   2xl:h-24 2xl:max-h-24 2xl:py-2 2xl:max-w-2xl 2xl:px-16
   3xl:h-24 3xl:max-h-24 3xl:py-2 3xl:max-w-2xl 3xl:px-16
   ">
@@ -26,12 +25,12 @@ const global = await directus.request(readSingleton('global')),
         </svg>
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-5 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-        <li>
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">FixedLink1</a>
+      <ul class="font-medium flex flex-col md:flex-row md:space-x-5 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
+        <li class="p-0 m-0">
+          <a href="/fixed-links" class="h-full block py-0 px-3 text-gray-900">Fixed Link 1</a>
         </li>
         <li>
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">FixedLink2</a>
+          <a href="/fixed-links" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Fixed Link 2</a>
         </li>
         {pages.map(page => (
           <li>
