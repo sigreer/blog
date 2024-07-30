@@ -8,9 +8,10 @@ const global = await directus.request(readSingleton("global", {
   fields: ['keycard_headline'],
 }));
 ---
-<h3 class="mb-2 text-xl md:mb-4 md:text-2xl lg:text-3xl font-bold">{global.keycard_headline}</h3>
-<section class="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-8">
-  {keycards.map((keycard) => (
+
+<section class="flex flex-col">
+  <h3 class="mb-2 text-xl md:mb-4 md:text-2xl lg:text-3xl font-bold">{global.keycard_headline}</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-8">{keycards.map((keycard) => (
     <a
       href={keycard.link}
       class={`w-full rounded-md p-4 md:p-6 shadow-md transition duration-100 hover:shadow-lg bg-cover bg-center hover:scale-105 ease-in-out ${keycard.style} relative overflow-hidden group`}
@@ -34,6 +35,7 @@ const global = await directus.request(readSingleton("global", {
       </div>
     </a>
   ))}
+  </div>
 </section>
 
 <div class="my-4 md:my-6"></div>

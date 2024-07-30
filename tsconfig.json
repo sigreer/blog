@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "lib": ["dom", "ES2015"],
     "jsx": "react",
     "strictNullChecks": true,
     "baseUrl": ".",
@@ -20,6 +21,6 @@
     "outDir": "./public/js",
     "rootDir": "./src"
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.ts*"],
+  "exclude": ["node_modules", "dist"]
 }
