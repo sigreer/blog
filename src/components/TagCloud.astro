@@ -20,20 +20,20 @@ const calculateFontSize = (count: number) => {
 ---
 
 <section>
-  <h3 class="mb-4 text-2xl font-bold">Tag Cloud</h3>
+  <h2 class="mb-2 text-xl md:mb-4 md:text-2xl lg:text-3xl font-bold">Tag Cloud</h2>
   <div class="flex flex-wrap gap-2 tag-block">
     {
       sortedTags.map(([tag, count]) => (
         <a
           href={`/blog?tag=${encodeURIComponent(tag)}`}
-          class="inline-block rounded px-2 py-1 text-xs font-semibold text-white tag-style transition-all hover:opacity-80"
+          class="inline-block rounded-md px-2 py-1 text-xs md:text-base lg:text-lg font-semibold text-white tag-style transition-all hover:opacity-80 relative"
           data-tag={tag}
-          style={`
-            
-            background-color: ${hashStringToColor(tag)};
-          `}
+          style={`background-color: ${hashStringToColor(tag)};`}
         >
           {tag}
+          <span class="ml-1 px-1 rounded bg-black bg-opacity-20">
+            {count}
+          </span>
         </a>
       ))
     }
