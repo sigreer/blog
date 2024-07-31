@@ -26,9 +26,9 @@ const tagCounts = posts.reduce((acc, post) => {
 ---
 
 <Layout title={global.title} description={global.description}>
-  {global.show_introduction && <Introduction />}
-  {global.show_carousel && <Carousel />}
   {global.show_dynamic_keycards && <DynamicKeyCards />}
+  {global.show_carousel && <Carousel />}
+  {global.show_introduction && <Introduction />}
   {global.show_fixed_keycards && <FixedKeyCards />}
   {global.show_blogcards && <BlogListCards />}
   {global.show_bloglines && <BlogListLines />}

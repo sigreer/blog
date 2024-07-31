@@ -1,0 +1,26 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import directus from "../lib/directus";
+import { readSingleton } from "@directus/sdk";
+import PostBody from '../components/PostBody';
+import { Markdown } from 'astro/components';
+
+const global = await directus.request(readSingleton('global'));
+
+const htmlContent = `
+    <h1>This is a hard-coded page.</h1>
+    <p>This is a hard-coded page.</p>
+`;
+
+const markdownContent = `
+# This is markdown rendered
+This is a paragraph in Markdown.
+> code
+`;
+---
+<PageLayout title={global.title} description={global.description}>
+    <PostBody content={htmlContent}>
+        <p>content</p>
+        <a href="link">link</a>
+    </PostBody>
+</PageLayout>
