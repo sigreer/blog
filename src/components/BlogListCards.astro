@@ -10,7 +10,7 @@ const posts = await directus.request(readItems("posts", {
 ---
 
 <section>
-    <h3 class="mb-2 text-xl md:mb-4 md:text-2xl lg:text-3xl font-bold">Blog Posts</h3>
+    <h2 class="mb-2 text-xl md:mb-4 md:text-2xl lg:text-3xl font-bold">Blog Post Cards</h2>
     <ul class="grid gap-4
     grid-cols-1 
     sm:grid-cols-2 
@@ -23,7 +23,7 @@ const posts = await directus.request(readItems("posts", {
         <BlogListCard
           title={post.title}
           slug={post.slug}
-          content={post.excerpt}
+          excerpt={post.excerpt}
           tags={post.tags}
           image={post.image}
           className="hidden sm:block md:hidden"
@@ -33,7 +33,7 @@ const posts = await directus.request(readItems("posts", {
         <BlogListCard
           title={post.title}
           slug={post.slug}
-          content={post.excerpt}
+          excerpt={post.excerpt}
           tags={post.tags}
           image={post.image}
           className="hidden md:block lg:hidden"
@@ -43,7 +43,7 @@ const posts = await directus.request(readItems("posts", {
               <BlogListCard
                 title={post.title}
                 slug={post.slug}
-                content={post.excerpt}
+                excerpt={post.excerpt}
                 tags={post.tags}
                 image={post.image}
                 className="hidden lg:block"

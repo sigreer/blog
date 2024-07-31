@@ -24,6 +24,12 @@ type Global = {
   twitter: string;
   github: string;
   show_banner: boolean;
+  show_carousel: boolean;
+  show_dynamic_keycards: boolean;
+  show_fixed_keycards: boolean;
+  show_blogcards: boolean;
+  show_bloglines: boolean;
+  show_introduction: boolean;
   banner_text: string;
   banner_link: string;
 }

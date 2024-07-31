@@ -10,25 +10,26 @@ export interface Props {
 const { title, content, slug, tags, image } = Astro.props
 ---
 
-<li class="flex flex-col rounded-md bg-white hover:shadow-lg hover:scale-105 shadow-md transition h-32">
+<li class="flex flex-col rounded-md bg-white hover:shadow-lg hover:scale-105 shadow-md transition h-44">
   <a 
   href={`/blog/${slug}`} 
-  class="flex flex-row gap-y-1 p-0 relative"
+  class="flex flex-row gap-x-1 p-1 relative h-full"
   >
-  <div class="w-1/6 py-0 px-0 inset-0 absolute">
-    <img src={ `${process.env.DIRECTUS_URL}/assets/${image}` } alt={title} class="h-full w-full rounded-l-md"/>
+  <div class="w-1/5 overflow-hidden">
+    <img src={ `${process.env.DIRECTUS_URL}/assets/${image}` } alt={image.description} class="h-full w-full object-cover object-center rounded-l-md"/>
 </div>
+
     <div class="flex flex-col gap-y-0 py-1 px-4 w-5/6">
-      <h3 class="pr-4 pt-1 text-base font-semibold">
+      <h3 class="2xl:text-2xl font-semibold line-clamp-1 py-1">
         {title}
       </h3>
-      <p class="text-sm line-clamp-2">
+      <p class="2xl:text-lg md:text-base text-sm h-auto mb-1.5 line-clamp-2">
         {content}
       </p>
       <div class="flex flex-wrap gap-1 tag-block">
         {tags?.map((tag) => (
           <span
-            class="rounded-sm px-2 py-1 text-xs font-bold text-white shadow-sm-light transition tag-style" data-tag={tag}>
+            class="rounded-md px-2 py-1 text-xs md:text-base font-semibold text-white shadow-sm-light transition tag-style" data-tag={tag}>
             {tag}
           </span>
         ))}

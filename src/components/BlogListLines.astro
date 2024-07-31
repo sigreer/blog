@@ -8,7 +8,8 @@ const posts = await directus.request(readItems("posts", {
 ---
 
 <section>
-    <ul class="flex flex-col gap-4">
+  <h2 class="mb-2 text-xl md:mb-4 md:text-2xl lg:text-3xl font-bold">Blog Post Lines</h2>
+    <ul class="flex flex-col gap-y-2 md:gap-y-3 lg:gap-y-6">
         {
           posts.slice(2, 6).map((post) => (
             <BlogListLine
