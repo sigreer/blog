@@ -20,9 +20,18 @@ type Global = {
   site_url: string;
   keycard_headline: string;
   about: string;
+  about_pic: {
+    id: string;
+    description: string;
+  };
   mastodon: string;
   twitter: string;
   github: string;
+  dribbble: string;
+  linkedin: string;
+  instagram: string;
+  facebook: string;
+  dev: string;
   show_banner: boolean;
   show_carousel: boolean;
   show_dynamic_keycards: boolean;
@@ -30,8 +39,14 @@ type Global = {
   show_blogcards: boolean;
   show_bloglines: boolean;
   show_introduction: boolean;
+  show_logoline: boolean;
+  introduction_title: string;
   banner_text: string;
   banner_link: string;
+  carousel_title: string;
+  blogcards_title: string;
+  bloglines_title: string;
+
 }
 
 type Keycard = {

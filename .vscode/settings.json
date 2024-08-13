@@ -1,3 +1,4 @@
 {
-    "astro.trace.server": "messages"
+    "astro.trace.server": "messages",
+    "editor.tabCompletion": "on"
 }

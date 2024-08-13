@@ -1,11 +1,30 @@
 ---
 import { hashStringToColor } from '../utils/colorUtils';
+import { readItems } from '@directus/sdk';
+import directus from '../lib/directus';
 
 export interface TagCloudProps {
-  tagCounts: Record<string, number>;
+  tagCounts?: Record<string, number>;
 }
+const { tagCounts: propTagCounts } = Astro.props as TagCloudProps;
 
-const { tagCounts } = Astro.props as TagCloudProps;
+let tagCounts: Record<string, number>;
+
+if (propTagCounts) {
+  tagCounts = propTagCounts;
+} else {
+  // Fetch tags from Directus if no prop is passed
+  const posts = await directus.request(readItems('posts', {
+    fields: ['tags'],
+  }));
+  
+  tagCounts = posts.reduce((acc, post) => {
+    post.tags.forEach((tag: string) => {
+      acc[tag] = (acc[tag] || 0) + 1;
+    });
+    return acc;
+  }, {} as Record<string, number>);
+}
 
 // Sort tags by count in descending order
 const sortedTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]) as [string, number][];
@@ -19,9 +38,7 @@ const calculateFontSize = (count: number) => {
 };
 ---
 
-<section>
-  <h2 class="mb-2 text-xl md:mb-4 md:text-2xl lg:text-3xl font-bold">Tag Cloud</h2>
-  <div class="flex flex-wrap gap-2 tag-block">
+<div class="flex flex-wrap gap-2 tag-block">
     {
       sortedTags.map(([tag, count]) => (
         <a

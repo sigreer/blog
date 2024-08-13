@@ -1,9 +1,11 @@
-<div class="border-b bg-purple-800 p-2 text-center text-sm text-white font-bold">
-    The source code for this blog is{' '}
-    <a
-      href="https://github.com/sigreer/astro-directus-blog"
-      target="_parent"
-      class="underline transition-colors hover:text-blue-600">
-      available on GitHub</a
-    >.
+---
+import { readSingleton } from '@directus/sdk';
+import directus from '../lib/directus';
+const global = await directus.request(readSingleton('global'));
+---
+
+<div class="border-0 bg-purple-900 p-2 text-center text-sm text-white font-bold">
+  <a
+  href={global.banner_link}
+  target="_parent" class="no-underline transition-colors hover:text-blue-100 hover:underline"> {global.banner_text}</a>
   </div>
