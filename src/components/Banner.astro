@@ -4,7 +4,7 @@ import directus from '../lib/directus';
 const global = await directus.request(readSingleton('global'));
 ---
 
-<div class="border-0 bg-purple-900 p-2 text-center text-sm text-white font-bold">
+<div class="border-0 bg-pink-300 drop-shadow-lg p-4 text-center text-base text-blue-900 font-bold">
   <a
   href={global.banner_link}
   target="_parent" class="no-underline transition-colors hover:text-blue-100 hover:underline"> {global.banner_text}</a>
